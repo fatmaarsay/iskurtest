@@ -4,7 +4,7 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace WinFormsApp1.DataBase
+namespace WinFormsApp1.DataBase.Repos
 {
     internal class KatilimciRepo
     {
@@ -29,6 +29,9 @@ namespace WinFormsApp1.DataBase
             new MySqlParameter("@istenayrilma", isten_cikis_tarihi);
 
         }
+        public void Sil()
+        {
 
+        }
     }
 }

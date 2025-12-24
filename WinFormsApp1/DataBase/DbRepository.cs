@@ -1,9 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
-using System.Text;
-using MySql.Data.MySqlClient;
 
 
 namespace WinFormsApp1.DataBase
@@ -12,42 +8,65 @@ namespace WinFormsApp1.DataBase
     {
         public DataTable GetAll(string tableName)
         {
-            var datatable = new DataTable();
+            try
+            {
+                var datatable = new DataTable();
 
-            using var con = DbConnection.GetConnection();
-            using var adapter = new MySqlDataAdapter(
-                $"SELECT * FROM {tableName}", con);
+                using var con = DbConnection.GetConnection();
+                using var adapter = new MySqlDataAdapter(
+                    $"SELECT * FROM {tableName}", con);
 
-            adapter.Fill(datatable);
-            return datatable;
+                adapter.Fill(datatable);
+                return datatable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Başarısız veri çekme işlemi, hata: " + tableName, ex);
+            }
+
         }
 
         public DataTable GetByQuery(string sql, params MySqlParameter[] parameters)
         {
-            var datatable = new DataTable();
+            try
+            {
+                var datatable = new DataTable();
 
-            using var con = DbConnection.GetConnection();
-            using var cmd = new MySqlCommand(sql, con);
+                using var con = DbConnection.GetConnection();
+                using var cmd = new MySqlCommand(sql, con);
 
-            if (parameters != null)
-                cmd.Parameters.AddRange(parameters);
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
 
-            using var adapter = new MySqlDataAdapter(cmd);
-            adapter.Fill(datatable);
+                using var adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(datatable);
 
-            return datatable;
+                return datatable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Başarısız sorgu işlemi, hata: " + parameters, ex);
+            }
+
         }
 
         public void Execute(string sql, params MySqlParameter[] parameters)
         {
-            using var con = DbConnection.GetConnection();
-            using var cmd = new MySqlCommand(sql, con);
+            try
+            {
+                using var con = DbConnection.GetConnection();
+                using var cmd = new MySqlCommand(sql, con);
 
-            if (parameters != null)
-                cmd.Parameters.AddRange(parameters);
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
 
-            con.Open();
-            cmd.ExecuteNonQuery();
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Başarısız veri tabanı komutu, hata: " + parameters, ex);
+            }
         }
 
         internal void Execute()

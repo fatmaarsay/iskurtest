@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace WinFormsApp1.DataBase
+namespace WinFormsApp1.DataBase.Repos
 {
     internal class PuantajRepo
     {
