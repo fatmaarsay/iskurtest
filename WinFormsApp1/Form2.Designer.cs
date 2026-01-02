@@ -51,6 +51,8 @@
             dtp_ise_giris = new DateTimePicker();
             dtp_isten_cikis = new DateTimePicker();
             btn_coklu_giris = new Button();
+            txt_id = new TextBox();
+            label9 = new Label();
             panel1.SuspendLayout();
             pnl_datagrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -130,6 +132,7 @@
             btn_guncelle.TabIndex = 5;
             btn_guncelle.Text = "Güncelle";
             btn_guncelle.UseVisualStyleBackColor = true;
+            btn_guncelle.Click += btn_guncelle_Click;
             // 
             // label2
             // 
@@ -254,11 +257,29 @@
             btn_coklu_giris.Text = "Çoklu Giriş (Excel)";
             btn_coklu_giris.UseVisualStyleBackColor = true;
             // 
+            // txt_id
+            // 
+            txt_id.Location = new Point(388, 401);
+            txt_id.Name = "txt_id";
+            txt_id.Size = new Size(235, 27);
+            txt_id.TabIndex = 24;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(269, 404);
+            label9.Name = "label9";
+            label9.Size = new Size(68, 20);
+            label9.TabIndex = 23;
+            label9.Text = "Tc Kimlik";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1260, 687);
+            Controls.Add(txt_id);
+            Controls.Add(label9);
             Controls.Add(btn_coklu_giris);
             Controls.Add(dtp_isten_cikis);
             Controls.Add(dtp_ise_giris);
@@ -315,5 +336,7 @@
         private DateTimePicker dtp_ise_giris;
         private DateTimePicker dtp_isten_cikis;
         private Button btn_coklu_giris;
+        private TextBox txt_id;
+        private Label label9;
     }
 }

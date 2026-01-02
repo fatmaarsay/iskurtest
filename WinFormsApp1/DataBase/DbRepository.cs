@@ -6,31 +6,12 @@ namespace IskurTakipSistemi.DataBase
 {
     public class DbRepository
     {
-        public DataTable GetAll(string tableName)
-        {
-            try
-            {
-                var datatable = new DataTable();
-
-                using var con = DbConnection.GetConnection();
-                using var adapter = new MySqlDataAdapter(
-                    $"SELECT * FROM {tableName}", con);
-
-                adapter.Fill(datatable);
-                return datatable;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Başarısız veri çekme işlemi, hata: " + tableName, ex);
-            }
-
-        }
-
+        //parametreli select sorguları için, data table döndüren method
         public DataTable GetByQuery(string sql, params MySqlParameter[] parameters)
         {
             try
             {
-                var datatable = new DataTable();
+                var dt = new DataTable();
 
                 using var con = DbConnection.GetConnection();
                 using var cmd = new MySqlCommand(sql, con);
@@ -39,17 +20,16 @@ namespace IskurTakipSistemi.DataBase
                     cmd.Parameters.AddRange(parameters);
 
                 using var adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(datatable);
+                adapter.Fill(dt);
 
-                return datatable;
+                return dt;
             }
             catch (Exception ex)
             {
-                throw new Exception("Başarısız sorgu işlemi, hata: " + parameters, ex);
+                throw;
             }
-
         }
-
+        //parametreli sorgular için
         public void Execute(string sql, params MySqlParameter[] parameters)
         {
             try
@@ -63,17 +43,13 @@ namespace IskurTakipSistemi.DataBase
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("Başarısız veri tabanı komutu, hata: " + parameters, ex);
+                throw;
             }
         }
-
-        internal void Execute()
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }
 
 
