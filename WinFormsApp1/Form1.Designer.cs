@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1
+﻿namespace IskurTakipSistemi
 {
     partial class Form3 : System.Windows.Forms.Form
     {

@@ -1,8 +1,8 @@
 using MySql.Data.MySqlClient;
 using System.Data;
-using WinFormsApp1.DataBase;
-using WinFormsApp1.DataBase.Repos;
-namespace WinFormsApp1
+using IskurTakipSistemi.DataBase;
+using IskurTakipSistemi.DataBase.Repos;
+namespace IskurTakipSistemi
     
 {
     public partial class Form2 : System.Windows.Forms.Form

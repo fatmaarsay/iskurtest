@@ -1,6 +1,6 @@
-using WindowsFormsApp1;
+using IskurTakipSistemi;
 
-namespace WinFormsApp1
+namespace IskurTakipSistemi
 {
     internal static class Program
     {

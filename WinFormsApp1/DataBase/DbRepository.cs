@@ -2,7 +2,7 @@
 using System.Data;
 
 
-namespace WinFormsApp1.DataBase
+namespace IskurTakipSistemi.DataBase
 {
     public class DbRepository
     {

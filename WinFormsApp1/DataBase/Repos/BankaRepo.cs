@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinFormsApp1.DataBase.Repos
+namespace IskurTakipSistemi.DataBase.Repos
 {
     internal class BankaRepo
     {

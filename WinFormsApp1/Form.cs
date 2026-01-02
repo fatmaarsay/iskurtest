@@ -5,10 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using WinFormsApp1.DataBase;
-using WinFormsApp1.DataBase.Repos;
+using IskurTakipSistemi.DataBase;
+using IskurTakipSistemi.DataBase.Repos;
 
-namespace WinFormsApp1
+namespace IskurTakipSistemi
 {
     public partial class Form : System.Windows.Forms.Form
     {

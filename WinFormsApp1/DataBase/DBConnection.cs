@@ -1,6 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 
-namespace WinFormsApp1.DataBase
+namespace IskurTakipSistemi.DataBase
 {
 
     public static class DbConnection

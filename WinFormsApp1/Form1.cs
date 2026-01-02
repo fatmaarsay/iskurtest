@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace IskurTakipSistemi
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
