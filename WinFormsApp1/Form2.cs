@@ -1,10 +1,11 @@
 using MySql.Data.MySqlClient;
 using System.Data;
 using WinFormsApp1.DataBase;
+using WinFormsApp1.DataBase.Repos;
 namespace WinFormsApp1
     
 {
-    public partial class Form2 : Form
+    public partial class Form2 : System.Windows.Forms.Form
     {
         public Form2()
         {
