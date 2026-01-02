@@ -2,7 +2,6 @@
 
 namespace IskurTakipSistemi.DataBase
 {
-
     public static class DbConnection
     {
         private static readonly string _connectionString =
@@ -10,29 +9,7 @@ namespace IskurTakipSistemi.DataBase
 
         public static MySqlConnection GetConnection()
         {
-            MySqlConnection connection = new MySqlConnection(_connectionString);
-
-            try
-            {
-                connection.Open();
-
-                return connection;
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Veritabanı bağlantı hatası: " + ex.Message);
-                throw;
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Genel bağlantı hatası: " + ex.Message);
-                throw;
-
-            }
+            return new MySqlConnection(_connectionString);
         }
     }
-
-
 }
